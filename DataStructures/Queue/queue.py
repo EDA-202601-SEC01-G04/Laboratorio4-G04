@@ -1,43 +1,23 @@
+from DataStructures.List import single_linked_list as sll
+
 def new_queue():
-    queue = {"first":None, "last":None, "size":0}
-    return queue
+    return sll.new_list()
 
 def enqueue(my_queue, element):
-    this_node = {"info": element, "next":None}
-    
-    if my_queue["size"] == 0:
-        my_queue["first"] = this_node
-        my_queue["last"] = this_node
-    else:
-        my_queue["last"]["next"] = this_node
-        my_queue["last"] = this_node
-        
-    my_queue["size"]+=1
-    return my_queue
+    return sll.add_last(my_queue, element)
 
 def dequeue(my_queue):
-    if my_queue["size"] == 0:
+    if sll.is_empty(my_queue):
         raise IndexError("dequeue from empty queue")
-    else:
-        removed_element = my_queue["first"]["info"]
-        my_queue["first"] = my_queue["first"]["next"]
-        my_queue["size"] -= 1
-        if my_queue["size"] == 0:
-            my_queue["last"]=None
-            
-    return removed_element
+    return sll.remove_first(my_queue)
 
 def peek(my_queue):
-    if my_queue["size"] == 0:
-        raise IndexError("dequeue from empty queue")
-    else:
-        resp = my_queue["first"]["info"]
-        return resp
+    if sll.is_empty(my_queue):
+        raise IndexError("peek from empty queue")
+    return sll.first_element(my_queue)
 
 def is_empty(my_queue):
-    resp = my_queue["size"] == 0
-    return resp
+    return sll.is_empty(my_queue)
 
 def size(my_queue):
-    resp = my_queue["size"]
-    return resp
+    return sll.size(my_queue)
