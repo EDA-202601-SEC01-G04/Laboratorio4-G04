@@ -65,7 +65,7 @@ def load_data(control):
 
 def print_books_to_read(results):
     # TODO Imprimir los libros por leer
-    print(results["books_to_read"])
+    print(results)
     
 
 
