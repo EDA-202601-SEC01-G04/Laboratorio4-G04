@@ -130,9 +130,7 @@ def get_books_stack_by_user(catalog, user_id):
     Retorna una pila con los libros que un usuario tiene por leer.
     """
     books_stack = st.new_stack()
-
     books_to_read = catalog['books_to_read']
-    
     for i in range(1, lt.size(books_to_read) + 1):
         book_to_read = lt.get_element(books_to_read, i)
         
@@ -140,7 +138,6 @@ def get_books_stack_by_user(catalog, user_id):
             st.push(books_stack, book_to_read)
             
     return books_stack
-
 
 def get_user_position_on_queue(catalog, user_id, book_id):
     """
