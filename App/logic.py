@@ -131,10 +131,10 @@ def get_books_stack_by_user(catalog, user_id):
     """
     books_stack = st.new_stack()
     books_to_read = catalog['books_to_read']
-    for i in range(1, lt.size(books_to_read) + 1):
+    for i in range(0, lt.size(books_to_read)):
         book_to_read = lt.get_element(books_to_read, i)
-        
-        if book_to_read['user_id'] == user_id:
+    
+        if int(book_to_read['user_id']) == user_id:
             st.push(books_stack, book_to_read)
             
     return books_stack
@@ -148,20 +148,20 @@ def get_user_position_on_queue(catalog, user_id, book_id):
  
     books_to_read = catalog['books_to_read']
     
-    for i in range(1, lt.size(books_to_read) + 1):
+    for i in range(0, lt.size(books_to_read)):
         book_to_read = lt.get_element(books_to_read, i)
-        if book_to_read['book_id'] == book_id:
+        if int(book_to_read['book_id']) == int(book_id):
             q.enqueue(queue, book_to_read)
-    
     found = False
     temp_position = 1
     while not q.is_empty(queue) and not found:
         current = q.peek(queue)
-        if current['user_id'] == user_id:
+        if int(current['user_id']) == int(user_id):
             position = temp_position
             found = True
         q.dequeue(queue)
         temp_position += 1
+        
     
     return position
 

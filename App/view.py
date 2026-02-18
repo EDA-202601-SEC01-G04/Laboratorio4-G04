@@ -121,13 +121,13 @@ def main():
                   str(bktg))
 
         elif int(inputs[0]) == 2:
-            user_id = input("Ingrese el id del usuario: ")
+            user_id = int(input("Ingrese el id del usuario: "))
             result = logic.get_books_stack_by_user(control, int(user_id))
             print_books_to_read(result)
 
         elif int(inputs[0]) == 3:
-            user_id = input("Ingrese el id del usuario: ")
-            book_id = input("Ingrese el id del libro: ")
+            user_id = int(input("Ingrese el id del usuario: "))
+            book_id = int(input("Ingrese el id del libro: "))
 
             result = logic.get_user_position_on_queue(
                 control, int(user_id), int(book_id))
