@@ -84,9 +84,6 @@ def print_tests_results(queue_results, stack_results):
 
     print("\nTiempos de ejecución para Pila: \n")
 
-    # TODO Imprimir los resultados de las pruebas de rendimiento de la pila
-    print("\nTiempos de ejecución para Cola: \n")
-
     print("Tiempo de ejecución para enqueue:",
           f"{stack_results['push_time']:.3f}", "[ms]")
     print("Tiempo de ejecución para peek:",
@@ -94,7 +91,6 @@ def print_tests_results(queue_results, stack_results):
     print("Tiempo de ejecución para dequeue:",
           f"{stack_results['pop_time']:.3f}", "[ms]")
 
-    print("\nTiempos de ejecución para Pila: \n")
 
 # Se crea el controlador asociado a la vista
 control = new_logic()
